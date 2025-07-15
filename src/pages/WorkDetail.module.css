@@ -1,0 +1,99 @@
+.container {
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 40px 8px;
+}
+.center {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+.cardBlue {
+  background: #eff6ff;
+}
+.cardGreen {
+  background: #ecfdf5;
+}
+.title {
+  color: #2563eb;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2563eb;
+}
+.sectionTitleGreen {
+  color: #059669;
+}
+.newsLink {
+  color: #2563eb;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+.newsLink:hover {
+  text-decoration: underline;
+}
+.dataLink {
+  color: #059669;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+.dataLink:hover {
+  text-decoration: underline;
+}
+.list {
+  padding-left: 24px;
+  margin: 0;
+}
+.listItem {
+  margin-bottom: 6px;
+}
+
+/* 主作品高亮样式 */
+.cardHighlight {
+  background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+  border: 2px solid #38bdf8;
+}
+
+/* 来源组合布局 */
+.sourceGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 24px;
+}
+
+.sourceSection {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* 新闻源特色边框 */
+.sourceSection:first-child {
+  border: 1px solid #93c5fd;
+}
+
+/* 数据源特色边框 */
+.sourceSection:last-child {
+  border: 1px solid #6ee7b7;
+}
+
+.newsHeading {
+  color: #1d4ed8;
+  font-size: 1.1rem;
+}
+
+.dataHeading {
+  color: #059669;
+  font-size: 1.1rem;
+}
