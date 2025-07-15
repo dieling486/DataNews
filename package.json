@@ -5,8 +5,10 @@
   "homepage": "https://your-username.github.io/your-repo",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "run-p type-check\"build-only{@}\"--",
     "preview": "vite preview",
+    "build-only":"vite build --base=/DataNews",
+    "type-check":"vue-tsc --build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
