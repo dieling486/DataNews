@@ -67,11 +67,11 @@ function ShiftSimulator() {
     var _g = react_1.useState(null), selectedNurse = _g[0], setSelectedNurse = _g[1];
     // 计算数据
     var metrics = react_1.useMemo(function () {
-        var totalNursesInSchedule = Object.values(schedule).flat().length;
-        // 护患比 = 患者数 / 护士数
-        var nursePatientRatio = totalNursesInSchedule > 0 ? (patientCount || 0) / totalNursesInSchedule : 0;
-        // 日均休息时间
+        // 护士总数 = 资源池护士 + 排班表中所有唯一护士
         var allNurseIds = Array.from(new Set(__spreadArrays(nurses.map(function (n) { return n.id; }), Object.values(schedule).flat().map(function (n) { return n.id; }))));
+        var nurseCount = allNurseIds.length;
+        var nursePatientRatio = nurseCount > 0 ? (patientCount || 0) / nurseCount : 0;
+        // 日均休息时间
         var totalRest = 0;
         var count = 0;
         var _loop_1 = function (nurseId) {

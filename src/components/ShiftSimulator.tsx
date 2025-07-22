@@ -54,15 +54,15 @@ export default function ShiftSimulator() {
 
   // 计算数据
   const metrics = useMemo(() => {
-    const totalNursesInSchedule = Object.values(schedule).flat().length;
-    // 护患比 = 患者数 / 护士数
-    const nursePatientRatio = totalNursesInSchedule > 0 ? (patientCount || 0) / totalNursesInSchedule : 0;
-
-    // 日均休息时间
+    // 护士总数 = 资源池护士 + 排班表中所有唯一护士
     const allNurseIds = Array.from(new Set([
       ...nurses.map(n => n.id),
       ...Object.values(schedule).flat().map(n => n.id)
     ]));
+    const nurseCount = allNurseIds.length;
+    const nursePatientRatio = nurseCount > 0 ? (patientCount || 0) / nurseCount : 0;
+
+    // 日均休息时间
     let totalRest = 0;
     let count = 0;
     for (const nurseId of allNurseIds) {
