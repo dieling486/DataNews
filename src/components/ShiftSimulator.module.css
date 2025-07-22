@@ -1,0 +1,402 @@
+/* 根容器 */
+.simulatorRoot {
+  width: 100%;
+  background: none;
+}
+
+/* 顶部控制栏 */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px 10px 20px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 18px;
+  flex-wrap: wrap; /* 允许换行以适应小屏幕 */
+}
+.weekSelector, .deptSelector, .stdSwitcher, .patientCountSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.actionBtns {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.saveBtn, .resetBtn, .randomBtn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.saveBtn {
+  background: #2563eb;
+  color: #fff;
+}
+.saveBtn:hover {
+  background: #1d4ed8;
+}
+.resetBtn {
+  background: #f3f4f6;
+  color: #222;
+}
+.randomBtn {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+.randomBtn:hover {
+  background: #c7d2fe;
+}
+
+/* 主体三栏布局 */
+.mainArea {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 24px;
+  min-height: 480px;
+}
+.leftPanel {
+  width: 20%;
+  min-width: 180px;
+  max-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.centerPanel {
+  width: 60%;
+  min-width: 320px;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.rightPanel {
+  width: 20%;
+  min-width: 180px;
+  max-width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.panelTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.nurseList, .scheduleMatrix, .dashboard {
+  min-height: 120px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 16px;
+  color: #888;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nurseList {
+  min-height: 120px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 16px;
+  color: #888;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.nurseCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(37,99,235,0.06);
+  border: 1.5px solid #e0e7ef;
+  padding: 10px 16px;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2563eb;
+  cursor: grab;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
+.nurseCardSelected {
+  background: #e0e7ff;
+  border: 1.5px solid #4f46e5;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.12);
+}
+.nurseCard:active {
+  box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+  border: 1.5px solid #2563eb;
+}
+.nurseName {
+  flex: 1;
+}
+.nurseDeleteBtn {
+  background: #ffeded;
+  color: #ff4444;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.nurseDeleteBtn:hover {
+  background: #ff4444;
+  color: #fff;
+}
+.addNurseBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 0;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.addNurseBtn:hover {
+  background: #1d4ed8;
+}
+
+/* 响应式 */
+@media (max-width: 1100px) {
+  .mainArea {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .leftPanel, .rightPanel, .centerPanel {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.weekSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weekBtn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: #2563eb;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.weekBtn:hover {
+  background: #e0e7ef;
+}
+.weekLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 8px;
+}
+
+.deptSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deptSelect {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #f9fafb;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.stdSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stdLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+.stdSelect {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #f9fafb;
+  color: #2563eb;
+  font-weight: 600;
+}
+.patientCountSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.patientCountInput {
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  color: #2563eb;
+  font-weight: 600;
+  width: 60px;
+}
+
+.scheduleMatrix {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  grid-template-rows: auto repeat(3, 1fr);
+  gap: 4px;
+  width: 100%;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: 400px;
+}
+.scheduleHeader {
+  background: #eef2ff;
+  color: #2563eb;
+  font-weight: 700;
+  padding: 12px 8px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.scheduleCell {
+  background: #f9fafb;
+  border: 1px dashed #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.2s, border 0.2s;
+  overflow: hidden; /* 防止内容溢出撑开单元格 */
+}
+.scheduleCell:hover {
+  background: #f0f9ff;
+  border: 1px dashed #90caf9;
+}
+.shiftHeader {
+  background: #eef2ff;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+.shiftName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+.shiftTime {
+  font-size: 0.9rem;
+  color: #4f46e5;
+}
+.assignedNurse {
+  display: flex;
+  flex-direction: column; /* 让内容竖向排列 */
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #90caf9;
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-size: 1rem;
+  color: #1e3a8a;
+  font-weight: 600;
+  width: 100%;
+  height: 100%; /* 占满单元格高度 */
+  box-sizing: border-box;
+  text-align: center;
+}
+.removeNurseBtn {
+  flex-shrink: 0;
+  background: #ffeded;
+  color: #ff4444;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 6px; /* 与文字间距 */
+}
+.removeNurseBtn:hover {
+  background: #ff4444;
+  color: #fff;
+}
+
+.dashboard {
+  min-height: 120px;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  color: #888;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+}
+.chartContainer {
+  width: 100%;
+}
+.chartTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.gaugeStandardText {
+  text-align: center;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 2px;
+  letter-spacing: 2px;
+}
